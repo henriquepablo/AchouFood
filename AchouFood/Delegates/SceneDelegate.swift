@@ -12,6 +12,7 @@ import Kingfisher
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    var deliverySceneCoordinator: DeliveryScenesCoordinator?
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -22,7 +23,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         
-        window.rootViewController = UINavigationController(rootViewController: UIViewController())
+        self.deliverySceneCoordinator = DeliveryScenesCoordinator()
+        
+        window.rootViewController = self.deliverySceneCoordinator?.start()
         
         self.window = window
         window.makeKeyAndVisible()

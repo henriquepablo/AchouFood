@@ -22,8 +22,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
-        
+
         self.deliverySceneCoordinator = DeliveryScenesCoordinator()
+        StorageManage.shared.save(value:  "Av. das Estrelas, 567 - Canela, RS", forkey: "userAddress")
         
         window.rootViewController = self.deliverySceneCoordinator?.start()
         
